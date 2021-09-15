@@ -34,6 +34,14 @@ $.prototype.init = function(selector) {
     if (!selector) {
         return this; //  {}
     }
+
+    // if the element node element and only has one element
+    if (selector.tagName) {
+        this[0] = selector;
+        this.length = 1;
+        return this;
+    }
+
     // add in empty object(this) the seletor
     // we used "this" instead of "{}" for safe prototype name
     Object.assign(this, document.querySelectorAll(selector));
