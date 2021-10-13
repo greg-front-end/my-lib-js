@@ -141,8 +141,8 @@ $.prototype.init = function (selector) {
   this.length = document.querySelectorAll(selector).length; // return all object
 
   return this;
-}; // assign init prototype the $
-// then we can use all method in init function from $   
+}; // assign prototype of $ to prototype of init
+// then we can use all method from init function into $   
 
 
 $.prototype.init.prototype = $.prototype; // add constant $ in global
@@ -479,6 +479,34 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dura
   return this;
 };
 
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (duration, display, fin) {
+  for (let i = 0; i < this.length; i++) {
+    if (window.getComputedStyle(this[i]).display === 'none') {
+      this[i].style.display = display || 'block';
+
+      const _fadeIn = complection => {
+        this[i].style.opacity = complection;
+      };
+
+      const ani = this.animatedOverTime(duration, _fadeIn, fin);
+      requestAnimationFrame(ani);
+    } else {
+      const _fadeOut = complection => {
+        this[i].style.opacity = 1 - complection;
+
+        if (complection === 1) {
+          this[i].style.display = 'none';
+        }
+      };
+
+      const ani = this.animatedOverTime(duration, _fadeOut, fin);
+      requestAnimationFrame(ani);
+    }
+  }
+
+  return this;
+};
+
 /***/ }),
 
 /***/ "./src/js/lib/modules/handlers.js":
@@ -541,11 +569,19 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handle
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
+ // $('#first').on('click', () => {
+//     $('div').eq(1).fadeOut(800);
+// });
 
-$('button').on('click', function () {
-  $(this).toggleClass('active');
+$('[data-count="second"]').on('click', () => {
+  $('div').eq(2).fadeToggle(800);
 });
-$('.findme').fadeOut(2000);
+$('.reds').addClass('Hi'); // $('button').eq(2).on('click', () => {
+//     $('.w-33').fadeOut(800);
+// });
+// $('[data-show="show"]').on('click', () => {
+//     $('.w-33').fadeIn(800);
+// });
 
 /***/ })
 

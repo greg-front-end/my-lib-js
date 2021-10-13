@@ -22,7 +22,6 @@ $.prototype.eq = function(i) {
 
     this[0] = swap;
     this.length = 1;
-
     return this;
 };
 
@@ -110,3 +109,4 @@ $.prototype.siblings = function() {
 
     return this;
 };
+

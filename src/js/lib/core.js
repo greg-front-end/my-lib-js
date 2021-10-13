@@ -51,8 +51,8 @@ $.prototype.init = function(selector) {
     return this;
 };
 
-// assign init prototype the $
-// then we can use all method in init function from $   
+// assign prototype of $ to prototype of init
+// then we can use all method from init function into $   
 $.prototype.init.prototype = $.prototype;
 
 // add constant $ in global

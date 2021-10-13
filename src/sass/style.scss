@@ -1,7 +1,8 @@
 @import './general/base.scss';
 @import './general/veriable.scss';
 @import './general/typography.scss';
-@import './components/button.scss';
+@import './components/ui.scss';
+@import './helpers/classes.scss';
 
 
 
@@ -12,6 +13,18 @@
 // }
 button {
     color: $primary;
+}
+.red {
+    background-color: red;
+    padding: 20px;
+}
+.blue {
+    background-color: blue;
+    padding: 20px;
+}
+.yel {
+    background-color: yellow;
+    padding: 20px;
 }
 // button {
 //     width: 150px;
