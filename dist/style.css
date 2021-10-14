@@ -125,7 +125,8 @@
 
 .offer {
   flex-wrap: wrap;
-  gap: 20px; }
+  gap: 20px;
+  padding: 50px 0; }
 
 .card {
   min-width: calc(300px - 20px);
@@ -228,7 +229,8 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-size: 18px;
     color: #343a40;
-    cursor: pointer; }
+    cursor: pointer;
+    border-radius: 4px 4px 0 0; }
     .accordion-head--active {
       color: #025fff; }
   .accordion-content {
@@ -402,6 +404,9 @@
 
 .h-25 {
   height: 25%; }
+
+body {
+  padding: 50px 0; }
 
 button {
   color: #025fff; }

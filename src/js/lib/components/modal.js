@@ -12,7 +12,7 @@ $.prototype.modal = function(created) {
         closeElements.forEach(elem => {
             $(elem).click(() => {
                 $(target).fadeOut(500);
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = '';
                 if (created) {
                     document.querySelector(target).remove();
                 }
@@ -21,7 +21,7 @@ $.prototype.modal = function(created) {
         $(target).click(e => {
             if (e.target.classList.contains('modal')) {
                 $(target).fadeOut(500);
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = '';
                 if (created) {
                     document.querySelector(target).remove();
                 }

@@ -86,6 +86,37 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/lib/components/accordion.js":
+/*!********************************************!*\
+  !*** ./src/js/lib/components/accordion.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.accordion = function (headActive = 'accordion-head--active', contnetActive = 'accordion-content--active', paddings = 40) {
+  for (let i = 0; i < this.length; i++) {
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(() => {
+      Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).toggleClass(headActive);
+      Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].nextElementSibling).toggleClass(contnetActive);
+
+      if (this[i].classList.contains(headActive)) {
+        this[i].nextElementSibling.style.maxHeight = this[i].nextElementSibling.scrollHeight + paddings + 'px';
+      } else {
+        this[i].nextElementSibling.style.maxHeight = '0px';
+      }
+    });
+  }
+};
+
+Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.accordion-head').accordion();
+
+/***/ }),
+
 /***/ "./src/js/lib/components/dropwdown.js":
 /*!********************************************!*\
   !*** ./src/js/lib/components/dropwdown.js ***!
@@ -148,7 +179,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (create
     closeElements.forEach(elem => {
       Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = '';
 
         if (created) {
           document.querySelector(target).remove();
@@ -158,7 +189,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (create
     Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).click(e => {
       if (e.target.classList.contains('modal')) {
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = '';
 
         if (created) {
           document.querySelector(target).remove();
@@ -333,7 +364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_dropwdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/dropwdown */ "./src/js/lib/components/dropwdown.js");
 /* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/modal */ "./src/js/lib/components/modal.js");
 /* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/tab */ "./src/js/lib/components/tab.js");
+/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/accordion */ "./src/js/lib/components/accordion.js");
 // collect all modules into $
+
 
 
 
